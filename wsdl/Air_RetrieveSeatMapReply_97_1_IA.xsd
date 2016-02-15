@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.amadeus.com/SMPRES_97_1_IA" xmlns="http://xml.amadeus.com/SMPRES_97_1_IA" elementFormDefault="qualified">
+  <xs:element name="Air_RetrieveSeatMapReply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="responseAnalysisDetails" minOccurs="0" type="ResponseAnalysisDetails">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">response analysis details</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errorDetails" minOccurs="0" type="ErrorInformation_167440S">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">specification of the error details</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warningInformation" minOccurs="0" type="WarningInformation">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">warning informations</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="seatRequestParameters" minOccurs="0" type="SeatRequestParameters">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">selection criteria for a seat map</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="segment" minOccurs="0" maxOccurs="3">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Describes each air segment with the seat map of their respective aircrafts.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="flightDateInformation" type="TravelProductInformation">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Flight date information for the seatmap</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="segmentErrorDetails" minOccurs="0" type="ErrorInformation_167440S">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">specification of the error details</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="segmentWarningInformation" minOccurs="0" type="WarningInformation">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">warning informations</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="additionalProductInfo" minOccurs="0" type="AdditionalProductDetails_1585S">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">additional product details</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="aircraftEquipementDetails" minOccurs="0" type="EquipmentInformation">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">specification of the details of the aircraft</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="cabin" minOccurs="0" maxOccurs="9">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Seatmap of a cabin.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="cabinDetails" type="CabinDetails">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">It gives the row where the class starts and where it ends.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="cabinFacilitiesDetail" minOccurs="0" maxOccurs="9" type="CabinFacilities">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">specification of the details of the facilities of  a cabin</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="row" minOccurs="0" maxOccurs="99">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Describes seats characteristics and occupation (One occurence per Row)</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="rowDetails" type="RowDetails">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Row - To specify the individual seat information for seats in a particular row.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="rowFacilitiesDetail" minOccurs="0" maxOccurs="9" type="CabinFacilities">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">specification of the details of the cabin facilities at a certain row.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AdditionalEquipmentInformation">
+    <xs:sequence>
+      <xs:element name="aircraftVersion" minOccurs="0" type="AlphaNumericString_Length1To12">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Aircraft cabin version identification</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="airlineDetails" minOccurs="0" maxOccurs="3" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Airline Organisation FOR Airline Owner</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdditionalProductDetails_1585S">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To  convey additional information concerning an airline flight.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="additionalProductDetails" minOccurs="0" type="AdditionalProductDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Additional Produc Details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="departureInformation" minOccurs="0" type="StationInformation">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Departure information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arrivalInformation" minOccurs="0" type="StationInformation">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Arrival information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="travelerTimeDetails" minOccurs="0" type="TravelerTimeDetails" />
+      <xs:element name="productFacilities" minOccurs="0" maxOccurs="9" type="ProductFacilities">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Such things as meals or entertrainment on board</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdditionalProductDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">ADDITIONAL PRODUCT DETAILS</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="meansOfTransportType" minOccurs="0" type="AlphaNumericString_Length3To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Aircraft code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="numberOfStops" minOccurs="0" type="NumericInteger_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Number of en-route stops</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="legDuration" minOccurs="0" type="NumericInteger_Length4To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Leg duration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="daysOfOperation" type="NumericInteger_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Days of the week the flight operates: 1=Monday to 7=Sunday</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabinClassDesignation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Product class, number, and designator which define a cabin in a means of transport.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cabinClassDesignator" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Class of the cabin whose seat map is returned.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="resBookingDesignator" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Identify the reservation booking designator.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinClassOfServiceCode" minOccurs="0" type="NumericInteger_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Cabin class of service, coded</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="compartmentDesignator" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Cabin compartment designator</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabinClassSeatRowRangeDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the range of rows in a particular cabin class.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatRowNumber" maxOccurs="2" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Seat row number -To specify the first and last row number in the cabin range.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabinDetails">
+    <xs:sequence>
+      <xs:element name="cabinClassDesignation" type="CabinClassDesignation">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Product class, number and designator which defines a cabin in a means of transport.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinRangeOfRowsDetail" type="CabinClassSeatRowRangeDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To specify the range of rows in a particular cabin class</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinLocation" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Specifies the physical of a cabin class within a means of transport- lowerdeck-maindeck-upperdeck</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="smokingRowRange" minOccurs="0" type="SmokingAreaSeatRowRangeDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To specify the range of rows that allows smoking.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seatOccupationDefault" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Describes the general occupation status of seats on a means of transport</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="overwingRowRange" minOccurs="0" type="OverwingSeatRowRange">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To specify the range of rows over the wings of an aircraft</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinColumnDetails" minOccurs="0" maxOccurs="12" type="CabinWidthAndColumnDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">List of column designators in this cabin</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabinFacilitiesDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Information describing a specific area in a means of transport.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="typeOfFacilities" type="AlphaString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To indicate the type of cabin facility (e.g. lavatory, galley, etc.).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="locationOfTheFacility" minOccurs="0" type="AlphaString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To indicate the location of a cabin facility within a numbered row (e.g. right, etc.).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabinFacilities">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To indicate facilities within a cabin class or cabin compartment.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rowLocation" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Row location qualifier -To indicate the location of a cabin facility . F = front M = middle R = rear.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinFacilities" maxOccurs="9" type="CabinFacilitiesDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Information describing a specific area in a means of transport.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CabinWidthAndColumnDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the status of a column of seats.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatColumn" type="AlphaNumericString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To indicate the column of a seat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="columnCharacteristic" minOccurs="0" maxOccurs="2" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Column description - To indicate if the column is along a window or an aisle or between two other columns.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompanyIdentification">
+    <xs:sequence>
+      <xs:element name="marketingAirlineCode" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Company identification</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="operatingAirlineCode" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Company identification</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConfigurationDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify the number of seats for a specific class of service.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cabinClass" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">designator To indicate cabin class not necessarily an RBD.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinCapacity" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Seats - number of seats</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EquipmentInformation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify configuration details of an aircraft</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fittedConfiguration" minOccurs="0" maxOccurs="5" type="ConfigurationDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The details of the fitted configuration.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="meansOfTransport" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">User own or ATA/IATA industry defined aircraft type code (See SSIM, Appendix A, IATA Airline Coding Directory, Chapter 8).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="additionalEquipmentInfo" minOccurs="0" type="AdditionalEquipmentInformation" />
+      <xs:element name="equipmentFreeText" minOccurs="0" type="AlphaNumericString_Length1To70">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Free text</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorInformation_167440S">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the error(s) encountered while processing.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="errorInformation" maxOccurs="10" type="ErrorInformation">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Error information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorInformation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify an error and whether it occurred at the system or application level.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="processingLevel" type="NumericInteger_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Indicates at which level of processing the error took place.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorNumber" minOccurs="0" type="NumericInteger_Length1To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A code assigned by the receiver of a message identifying the error or warning.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="errorText" minOccurs="0" type="AlphaNumericString_Length1To70">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Free text</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GenericDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">GENERIC DETAILS</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cabinClassDesignator" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Allows seat assignment request and response by aircraft cabin.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="noSmokingIndicator" minOccurs="0" type="AlphaNumericString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Specifies if smoking is  disallowed in the cabin.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinClassOfService" minOccurs="0" type="NumericInteger_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Allows seat assignment request/response by cabin class.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cabinCompartment" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Allows seat assignment request and response by cabin compartment if there are separate cabins (front, rear cabin or upper deck)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seatCharacteristic" minOccurs="0" maxOccurs="5" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Allows seat assignment request/response to provide additional seat detail.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element name="departureCityCode" type="AlphaString_Length3To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A 3 character IATA code to specify place of departure</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Location_4170C">
+    <xs:sequence>
+      <xs:element name="arrivalCityCode" type="AlphaString_Length3To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A 3 character  IATA code to specify place of arrival</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OverwingSeatRowRange">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the range of rows in the overwing section of an aircraft.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatRowNumber" maxOccurs="2" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To specify the first and last row number in the range.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductDateOrTime">
+    <xs:sequence>
+      <xs:element name="departureDate" type="NumericInteger_Length6To6">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">First Date Departure Date (ddmmyy)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="departureTime" minOccurs="0" type="NumericInteger_Length4To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">First time</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arrivalDate" minOccurs="0" type="NumericInteger_Length6To6">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Second date</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arrivalTime" minOccurs="0" type="NumericInteger_Length4To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Second Time (hhmm)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateVariation" minOccurs="0" type="NumericInteger_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Date variation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductFacilities">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">PRODUCT FACILITIES</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="facilityTypeCode" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">There must be an error because the codes do not match Product Facilities ....</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="facilityDescriptionText" minOccurs="0" type="AlphaNumericString_Length1To70">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Additional info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductIdentificationDetails">
+    <xs:sequence>
+      <xs:element name="flightNumber" type="AlphaNumericString_Length1To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Product identification</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="classOfService" minOccurs="0" type="AlphaNumericString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reservations booking designator</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="alphaSuffix" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">An operational suffix (A-E) related to flight number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="itemDescription" minOccurs="0" maxOccurs="3" type="AlphaNumericString_Length1To7">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Item description identification</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RangeOfRowsDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">RANGE OF ROWS DETAILS</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatRowNumber" minOccurs="0" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">the number of the seats row</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="numberOfRows" minOccurs="0" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">the number of rows</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seatColumn" minOccurs="0" maxOccurs="20" type="AlphaNumericString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">list of existing seat column  designators  for this particular row.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResponseAnalysisDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the type of query and the processing status associated with this response.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="responseType" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To which message this is a  response (e.g. S for seat map).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="statusCode" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">STATUS, CODED Processing status is e.g. OK - data follows (O) or OK - no data follow (P) or non recoverable error (X).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RowCharacteristicsDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify the characteristics of a row on a means of transport.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rowCharacteristic" maxOccurs="9" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Characteristic which relates to all seats within the specified row number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RowDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the individual seat information for seats in a particular row.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatRowNumber" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the row described in this segment.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rowCharacteristicsDetails" minOccurs="0" type="RowCharacteristicsDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">List of row characteristics.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seatOccupationDetails" minOccurs="0" maxOccurs="12" type="SeatOccupationDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">List of the seats with their individual characteristics and occupation status.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeatOccupationDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To identify the status of a specific seat.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatColumn" type="AlphaNumericString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Column identifier of the seat.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seatOccupation" minOccurs="0" type="AlphaString_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">To indicate seat availability</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seatCharacteristic" minOccurs="0" maxOccurs="38" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Characteristics of the seat: window, aisle, for passenger with infant, facing a bulkhead...</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeatRequestParameters">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">SEAT REQUEST PARAMETERS</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="genericDetails" minOccurs="0" type="GenericDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Genreic details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rangeOfRowsDetails" minOccurs="0" type="RangeOfRowsDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Range of rows detail</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="actionRequired" minOccurs="0" type="AlphaNumericString_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The Processing Indicator (data element 7365) is used to indicate seat assignment association in the Advance Seat Assignment and Boarding Pass Request and the Wrap Up Request. The Processing Indicator is used to indicate boarding pass authority/restriction in the Advance Seat Assignment and Boarding Pass Response and the Wrap Up Response.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="freeSeatingReference" minOccurs="0" type="AlphaNumericString_Length1To35">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">reference number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="infoRelatedToCabinClass" minOccurs="0" type="AlphaNumericString_Length1To70">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Free text</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SmokingAreaSeatRowRangeDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify the range of rows that allow smoking.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="seatRowNumber" maxOccurs="2" type="NumericInteger_Length1To3">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Seat row number To specify the first and last row number in the range.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StationInformation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">STATION INFORMATION</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arrivalGate" minOccurs="0" type="AlphaNumericString_Length1To6">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Gate description</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arrivalTerminal" minOccurs="0" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Terminal of arrival</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arrivalConcourse" minOccurs="0" type="AlphaNumericString_Length1To2">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Concourse of arrival</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravelProductInformation">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">To specify details related to a product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productDetails" minOccurs="0" type="ProductDateOrTime">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">PRODUCT DATE OR TIME</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="boardpointDetail" minOccurs="0" type="Location">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Departure LOCATION</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offPointDetail" minOccurs="0" type="Location_4170C">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Arrival location details</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="companyIdentification" minOccurs="0" type="CompanyIdentification" />
+      <xs:element name="flightIdentification" type="ProductIdentificationDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">PRODUCT IDENTIFICATION DETAILS</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravelerTimeDetails">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">TRAVELER TIME DETAILS</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="checkInDetails" minOccurs="0" type="NumericInteger_Length10To10">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Check-in date and time (ddmmyyhhmm)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WarningDetails">
+    <xs:sequence>
+      <xs:element name="processingLevel" type="NumericInteger_Length1To1">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Defines the warning at a system level or syntax .</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="warningNumber" minOccurs="0" type="NumericInteger_Length1To4">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A code assigned by the receiver of a message identifying the warning.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="warningText" minOccurs="0" type="AlphaNumericString_Length1To70">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Text Information related to a cabin class.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WarningInformation">
+    <xs:sequence>
+      <xs:element name="warningDetails" maxOccurs="10" type="WarningDetails">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Details of the warning message</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AlphaString_Length1To1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: a1</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To35">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..35</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To70">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..70</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="70" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,3}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n1</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,1}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To4">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..4</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,4}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To1">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an1</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To2">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length6To6">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n6</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{6,6}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length4To4">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n4</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{4,4}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaString_Length3To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: a3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To4">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..4</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To7">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..7</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length3To3">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an3</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length1To2">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n..2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{1,2}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To6">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..6</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NumericInteger_Length10To10">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: n10</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="-?[0-9]{10,10}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaNumericString_Length1To12">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: an..12</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlphaString_Length1To2">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Format limitations: a..2</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+<!-- SchemaRules="2010/01"-->
+<!--Created with SchemaBuilder 5.1.0 by Amadeus S.A.S.-->
+<!--"Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved."-->
+<!--Build Key:
+1F8B080000000000000095534D6FD34010BDEFAF5871E180E238B41222D21E4CE31424D25649B8458AA6DE49B262BD6B76D6554DD5FFCEACED409190808B351FEBF978EFCD757953AE8B6DB9D8DFDEA8B7F9EC72329B4DDEE6727B6A0369E864FE7E7E91CFF30B79BDDABEC9D9CA45B12A62D7202D8D4507352A0EEC3F00996A9BC2D92369710F84379CA3062A54A7189BF974FA58DB0C6AD0D85256F97A2AEE5BA72D2E4C5053C2188D3BD2549B8A4475C2EAEB86BF35A8185A1495D7C84F4839EF9257D7E8D81B737503AE4BED946BADE540D305733C45F5AA18DAC9BBE09B603042E824382DAFBC3B18CD350C58F9C91D7CA8211AEFE6B275D0C6930FE63B6AD912F6CFB5A1CA7A6A034A8AC154D17692FFB9379A6B649281CBE5449E9B51061925DF5AB94E73905CF3F4E10175F64A683C406BE37568125C5A1DC0120AEDDB7B8B1BFCD6A2ABF00E62751A33E83EFC1398E87EBD794A043DEF9F1E30106FC556408B5C862D387287EE591C98BE756B19339F98ECFD9ECEFEE764FDA580F515D81172EB8F9A695CCC771FCB62B12BB5394015B7DE5BDA95DBFDC2500417AF9829E68F99DBAD207CC5C4F8F0867AAE69F7D91FB9963BF683187DEB6C276A0C471CC1E8EDA541AB69E343FC091F2F4E3C574109D3DF630B66DDD85139EEBF206ABC71F106E340472FB6E07D7C8150EF270167625821214AE992F2693E1B63B4F4A1B0866B8F8A4D5A3015D28295C4BD5994038A544388A9EE17672A13BB719118C091EDF5C9F828C69AA663E56DB19A3E69B486D70016D073C65991C6D32FCF87C57275BE99A126477AA8FA4B36AE128F64E36D1B9B362EBDD518540A083199AC06185F9334BFEE6432110348EA53215EF457C55DB12F4CD8CF7296740DC6A9CDEA4EE063C36CED81F68BF25A2D8BCF9BF24C8F8480A02E2FCF7E7ABF2E37A2E17B3074628607DC0772D48CAD07931853170330D063A852D335F271E2039F11C41534E24CD39F926B6C585B23FBEAFD3BF103F6C32CC20B050000
+-->
+

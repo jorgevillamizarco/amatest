@@ -1,0 +1,36 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wbs="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" xmlns:vls="http://xml.amadeus.com/VLSSLQ_06_1_1A"> 
+   <soapenv:Header> 
+      <wbs:Session> 
+         <wbs:SessionId></wbs:SessionId> 
+         <wbs:SequenceNumber></wbs:SequenceNumber> 
+         <wbs:SecurityToken></wbs:SecurityToken> 
+      </wbs:Session> 
+   </soapenv:Header> 
+   <soapenv:Body> 
+     <Security_Authenticate> 
+    		<userIdentifier> 
+	        <originIdentification> 
+	            <sourceOffice>{{.SourceOffice}}</sourceOffice> 
+	        </originIdentification> 
+	        <originatorTypeCode>U</originatorTypeCode> 
+	        <originator>{{.Originator}}</originator> 
+    		</userIdentifier> 
+    		<dutyCode> 
+        		<dutyCodeDetails> 
+	            <referenceQualifier>DUT</referenceQualifier> 
+	            <referenceIdentifier>SU</referenceIdentifier> 
+	        	</dutyCodeDetails> 
+   	 	</dutyCode> 
+    		<systemDetails> 
+	        <organizationDetails> 
+	            <organizationId>LATAM</organizationId> 
+	        </organizationDetails> 
+    		</systemDetails> 
+    		<passwordInfo> 
+	        <dataLength>{{.PassLength}}</dataLength> 
+	        <dataType>E</dataType> 
+	        <binaryData>{{.Pass}}</binaryData> 
+    		</passwordInfo> 
+	</Security_Authenticate> 
+   </soapenv:Body> 
+</soapenv:Envelope>

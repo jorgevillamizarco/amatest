@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with WSDLGenerator 1.0.0 by Amadeus SAS -->
+<!-- "Amadeus Proprietary and Confidential Information: unauthorized use and disclosure strictly forbidden. 2010 - Amadeus s.a.s - All Rights Reserved." -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wsdl.amadeus.com/HotelAvailability_v1_v2" xmlns:int="http://wsdl.amadeus.com/HotelAvailability_v1" xmlns:awsse="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" name="AVRABE_HotelAvailability_1.0_2.0" targetNamespace="http://wsdl.amadeus.com/HotelAvailability_v1_v2">
+  <wsdl:documentation>Versions: [interface: 1.0 ; technical: 2.0]</wsdl:documentation>
+  <wsdl:import namespace="http://wsdl.amadeus.com/HotelAvailability_v1" location="HotelAvailability_1.0.wsdl" />
+  <wsdl:types>
+    <xs:schema>
+      <xs:import schemaLocation="WBS_Session-2.0.xsd" namespace="http://xml.amadeus.com/ws/2009/01/WBS_Session-2.0.xsd" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Session_2.0">
+    <wsdl:part element="awsse:Session" name="session" />
+  </wsdl:message>
+  <wsdl:binding type="int:HotelAvailability_PT" name="HotelAvailability_Binding">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Hotel_EnhancedPricing">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWABEAVR/Hotel_EnhancedPricing_1.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_EnhancedSingleAvail">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWABEAVR/Hotel_EnhancedSingleAvail_1.0" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_MultiAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWABEAVR/OTA_HotelAvailRQ_3.000_OTA2009A_HMA" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Hotel_MultiSingleAvailability">
+      <soap:operation soapAction="http://webservices.amadeus.com/1ASIWABEAVR/OTA_HotelAvailRQ_3.000_OTA2009A_HMS" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header part="session" message="tns:Session_2.0" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HotelAvailability_Service">
+    <wsdl:port binding="tns:HotelAvailability_Binding" name="HotelAvailability_Port">
+      <soap:address location="https://nodeD1.test.webservices.amadeus.com" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+
+
+<!-- Build Key: 1F8B080000000000000025CDCB0AC2301085E17D9F62968AB424C56EB24BBDD48282A8D8F5A863194C9392C642DFDEA8DB1FCE772AB2E431B0B310B8A32160D72BC8852C5299A752C2D6F303A7585421D5524275B82C84504224CD79BD87EABF771E46F2436414C84C64225919260BD8F786EF3F5F811E19C3DB43E9DC8B6D0B1BDBB22598E972338F9A3E82C58E22A0CF7513A3BE9E92DA06F24FBCC7BC73818C1E910DDED87098BE4F1F017113AAC0000000 -->
